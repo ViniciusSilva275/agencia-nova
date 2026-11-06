@@ -1,609 +1,498 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA | Marketing & Audiovisual para Wellness, Saúde e Estética</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    <title>Agência de Marketing & Audiovisual | Presença Digital Completa</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#0B0F12',
-                            card: '#13191E',
-                            border: '#1E262F',
-                            emerald: '#10B981',
-                            neon: '#34D399',
-                            accent: '#059669',
-                            gray: '#94A3B8'
-                        }
-                    },
-                    boxShadow: {
-                        glow: '0 0 25px -5px rgba(16, 185, 129, 0.3)',
-                        'glow-lg': '0 0 50px -10px rgba(16, 185, 129, 0.4)',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --bg-dark: #0a0c10;
+            --bg-card: #12161f;
+            --bg-card-hover: #1a202c;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-green: #10b981;
+            --accent-neon: #00ff87;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #0B0F12;
-            color: #F8FAFC;
-            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Gradient background animations */
-        .bg-glow {
-            background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.12) 0%, rgba(11, 15, 18, 0) 70%);
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .card-border-glow {
-            position: relative;
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 12, 16, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
-        .card-border-glow:hover {
-            border-color: rgba(52, 211, 153, 0.5);
-            box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.25);
-            transform: translateY(-4px);
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
         }
 
-        /* Glassmorphism */
-        .glass-header {
-            background: rgba(11, 15, 18, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0F12;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1E262F;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #10B981;
+        .logo span {
+            color: var(--accent-green);
         }
 
-        /* Before/After Slider */
-        .ba-container {
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-neon);
+        }
+
+        .btn-header {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-neon);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
             position: relative;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-neon);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #fff 0%, var(--accent-neon) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: #051c14;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            background: var(--accent-neon);
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 100px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 36px 28px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 54px;
+            height: 54px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-neon);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio Showreel */
+        .portfolio {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            aspect-ratio: 9/16;
+            background: var(--bg-card);
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 1rem;
-            user-select: none;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            group: hover;
         }
-        .ba-slider {
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background: #34D399;
-            box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
-            cursor: ew-resize;
-            z-index: 20;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 12, 16, 0.9) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
         }
-        .ba-handle {
+
+        .portfolio-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-neon);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-card h4 {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .play-btn {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: #10B981;
-            color: #0B0F12;
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 185, 129, 0.9);
+            color: #000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+            font-size: 1.2rem;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+            transition: transform 0.3s ease;
         }
 
-        /* Scroll Reveal Effect */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        .portfolio-card:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.15);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Footer / CTA Final */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(16, 185, 129, 0.05) 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-emerald selection:text-black">
-
-    <!-- Efeito de brilho de fundo -->
-    <div class="fixed inset-0 bg-glow pointer-events-none z-0"></div>
+<body>
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-brand-border/50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 text-2xl font-extrabold tracking-wider">
-                <span class="text-white">AURA</span>
-                <span class="w-2 h-2 rounded-full bg-brand-neon animate-pulse"></span>
-                <span class="text-xs uppercase tracking-widest text-brand-gray font-normal ml-1">Media</span>
-            </a>
-
-            <!-- Navegação Desktop -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#solucoes" class="hover:text-brand-neon transition-colors">Soluções</a>
-                <a href="#showreel" class="hover:text-brand-neon transition-colors">Showreel</a>
-                <a href="#cases" class="hover:text-brand-neon transition-colors">Casos de Sucesso</a>
-                <a href="#diferencial" class="hover:text-brand-neon transition-colors">Antes x Depois</a>
-            </nav>
-
-            <!-- CTA Header -->
-            <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20um%20diagnóstico%20gratuito%20para%20minha%20empresa." 
-               target="_blank"
-               class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-emerald/10 text-brand-neon border border-brand-emerald/30 font-semibold text-sm hover:bg-brand-emerald hover:text-brand-dark transition-all duration-300">
-                <i data-lucide="whatsapp" class="w-4 h-4"></i>
-                <span>Diagnóstico Grátis</span>
-            </a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
-
-        <!-- Menu Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-6 space-y-4">
-            <a href="#solucoes" class="block text-slate-300 hover:text-brand-neon">Soluções</a>
-            <a href="#showreel" class="block text-slate-300 hover:text-brand-neon">Showreel</a>
-            <a href="#cases" class="block text-slate-300 hover:text-brand-neon">Casos de Sucesso</a>
-            <a href="#diferencial" class="block text-slate-300 hover:text-brand-neon">Antes x Depois</a>
-            <a href="https://wa.me/5500000000000" target="_blank" class="w-full text-center flex justify-center items-center gap-2 px-5 py-3 rounded-xl bg-brand-emerald text-brand-dark font-bold text-sm">
-                <i data-lucide="whatsapp" class="w-4 h-4"></i> Falar no WhatsApp
-            </a>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">AGÊNCIA<span>.DIGITAL</span></a>
+            <ul class="nav-links">
+                <li><a href="#servicos">Soluções</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#processo">Como Funciona</a></li>
+            </ul>
+            <a href="https://wa.me/5500000000000" target="_blank" class="btn-header">Falar no WhatsApp</a>
         </div>
     </header>
 
-    <main class="relative z-10 pt-28">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <i class="fa-solid fa-bolt"></i> Solução 360° para Negócios Locais & Empresas
+            </div>
+            <h1>Transformamos a presença digital da sua empresa em uma <span>máquina de atrair clientes</span>.</h1>
+            <p>Unimos produção audiovisual de alto padrão, criação de sites de alta conversão e otimização no Google para fazer seu negócio dominar a região.</p>
+            
+            <div class="hero-cta">
+                <a href="https://wa.me/5500000000000" class="btn-primary">
+                    <i class="fa-brands fa-whatsapp"></i> Solicitar Análise Gratuita
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- 1. HERO SECTION -->
-        <section class="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center md:text-left grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-            <div class="md:col-span-7 space-y-6 reveal">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card border border-brand-border text-brand-neon text-xs font-semibold uppercase tracking-wider">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                    <span>Posicionamento & Tráfego Local para Wellness</span>
+    <!-- Services Section -->
+    <section class="services" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que fazemos pelo seu negócio</h2>
+                <p>Estrutura completa de posicionamento e captação de novos clientes</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-video"></i></div>
+                    <h3>Captação & Edição</h3>
+                    <p>Vídeos institucionais, reels e shorts gravados no seu espaço com iluminação profissional, cortes dinâmicos e ritmo engajante.</p>
                 </div>
-                
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-                    Transformamos sua clínica ou box em um <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-brand-emerald">ímã de agendamentos</span>.
-                </h1>
 
-                <p class="text-lg text-slate-400 font-normal max-w-2xl">
-                    Unimos captação audiovisual de alto padrão, Landing Pages de alta conversão e presença estratégica no Google para atrair clientes de alto valor todos os dias.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
-                    <a href="https://wa.me/5500000000000?text=Quero%20solicitar%20um%20diagnóstico%20gratuito." 
-                       target="_blank"
-                       class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-brand-emerald to-brand-accent text-brand-dark font-bold text-base shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                        <span>Solicitar Diagnóstico Gratuito</span>
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-
-                    <a href="#showreel" 
-                       class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-card border border-brand-border text-slate-300 font-semibold text-base hover:bg-brand-border hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
-                        <i data-lucide="play-circle" class="w-5 h-5 text-brand-neon"></i>
-                        <span>Ver Trabalhos</span>
-                    </a>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Criação de Site (LP)</h3>
+                    <p>Páginas modernas, ultra rápidas e otimizadas para celulares, desenhadas para transformar visitantes em mensagens no WhatsApp.</p>
                 </div>
 
-                <div class="pt-6 flex items-center gap-8 text-xs text-slate-400 border-t border-brand-border/50 justify-center md:justify-start">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-neon"></i>
-                        <span>Estética & Saúde</span>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Google Meu Negócio</h3>
+                    <p>Otimização completa da sua ficha no Google Maps para colocar sua empresa nos primeiros lugares nas buscas locais.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h3>Social Media</h3>
+                    <p>Planejamento visual do perfil, alinhamento de feed e publicação estratégica dos conteúdos produzidos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trabalhos & Produções</h2>
+                <p>Exemplos do padrão de qualidade audiovisual e design que entregamos</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Gastronomia">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Gastronomia</span>
+                        <h4>Vídeo Promocional & Takes de Produto</h4>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-neon"></i>
-                        <span>Boxes de Crossfit</span>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Clínica e Saúde">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Saúde & Estética</span>
+                        <h4>Vídeo Institucional & Autoridade</h4>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-neon"></i>
-                        <span>Academias & Studio</span>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Academia e Wellness">
+                    <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Fitness & Wellness</span>
+                        <h4>Cortes Dinâmicos & Energia</h4>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Hero Video/Visual Mockup -->
-            <div class="md:col-span-5 reveal">
-                <div class="relative w-full max-w-sm mx-auto aspect-[9/16] rounded-3xl overflow-hidden border-2 border-brand-border bg-brand-card shadow-2xl group">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10 opacity-60"></div>
-                    
-                    <!-- Previsualização estática / Mockup -->
-                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop" 
-                         alt="Demonstração Audiovisual" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-
-                    <!-- Overlay de Play -->
-                    <div class="absolute inset-0 z-20 flex flex-col justify-between p-6">
-                        <div class="flex justify-between items-center">
-                            <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-medium text-brand-neon border border-brand-neon/30">
-                                Produção Exclusiva
-                            </span>
-                            <div class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white">
-                                <i data-lucide="volume-2" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <button onclick="openModal('https://www.w3schools.com/html/mov_bbb.mp4')" class="w-16 h-16 rounded-full bg-brand-emerald text-brand-dark flex items-center justify-center mx-auto shadow-glow hover:scale-110 transition-transform duration-300">
-                                <i data-lucide="play" class="w-8 h-8 fill-current ml-1"></i>
-                            </button>
-                            <p class="text-xs font-semibold text-slate-300 mt-3">Assistir Showreel (0:45)</p>
-                        </div>
-
-                        <div class="bg-black/50 backdrop-blur-md p-3 rounded-xl border border-white/10 text-left">
-                            <p class="text-xs font-bold text-white">Crossfit & Studio Premium</p>
-                            <p class="text-[10px] text-slate-300">Captação em 4K + Edição Dinâmica</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. SEÇÃO DE SOLUÇÕES (CARDS INTERATIVOS) -->
-        <section id="solucoes" class="py-20 bg-brand-card/40 border-y border-brand-border">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4 reveal">
-                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-neon">Nossas Soluções</h2>
-                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Estrutura completa para escalar seu negócio local</h3>
-                    <p class="text-slate-400 text-sm">Não entregamos apenas "postinhos". Entregamos um ecossistema visual e digital voltado a gerar agendamentos reais.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- Card 1 -->
-                    <div class="p-8 rounded-2xl bg-brand-card border border-brand-border card-border-glow space-y-4 reveal">
-                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-neon">
-                            <i data-lucide="video" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white">Captação & Edição</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Gravações presenciais com equipamentos profissionais, iluminação adequada e edições com cortes dinâmicos para prender a atenção no Instagram e TikTok.
-                        </p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="p-8 rounded-2xl bg-brand-card border border-brand-border card-border-glow space-y-4 reveal">
-                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-neon">
-                            <i data-lucide="layout" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white">Sites & LPs de Conversão</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Páginas ultra-rápidas, modernas e adaptadas para celulares, desenhadas com foco único: converter o visitante em contato de WhatsApp.
-                        </p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="p-8 rounded-2xl bg-brand-card border border-brand-border card-border-glow space-y-4 reveal">
-                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-neon">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white">Google Meu Negócio</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Otimização completa da sua ficha no Google Maps para colocar sua clínica ou academia nas primeiras posições quando procurarem na sua região.
-                        </p>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="p-8 rounded-2xl bg-brand-card border border-brand-border card-border-glow space-y-4 reveal">
-                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-neon">
-                            <i data-lucide="share-2" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-xl font-bold text-white">Gestão Social Media</h4>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Planejamento estratégico de conteúdo, linha editorial focada em autoridade e publicação organizada para manter suas redes sempre ativas.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SEÇÃO DE PORTFÓLIO / SHOWREEL (GRADES 9:16) -->
-        <section id="showreel" class="py-24 max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
-                <div class="space-y-3">
-                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-neon">Portfólio em Vídeo</h2>
-                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Produções no formato Reels & Shorts</h3>
-                </div>
-                <p class="text-slate-400 text-sm max-w-md">Clique em qualquer projeto abaixo para assistir ao corte final com tratamento de áudio e cor.</p>
-            </div>
-
-            <!-- Grade de Vídeos (9:16) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Card Vídeo 1 -->
-                <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden border border-brand-border bg-brand-card cursor-pointer reveal" onclick="openModal('https://www.w3schools.com/html/mov_bbb.mp4')">
-                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Vídeo Estética" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                    
-                    <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                        <span class="self-start px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-medium text-brand-neon border border-brand-neon/20">
-                            Clínica de Estética
-                        </span>
-                        
-                        <div class="space-y-2">
-                            <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-dark flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-white">Procedimento & Espaço</h4>
-                            <p class="text-xs text-slate-300">Foco em passar credibilidade e higiene de alto padrão.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Vídeo 2 -->
-                <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden border border-brand-border bg-brand-card cursor-pointer reveal" onclick="openModal('https://www.w3schools.com/html/mov_bbb.mp4')">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" alt="Vídeo Crossfit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                    
-                    <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                        <span class="self-start px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-medium text-brand-neon border border-brand-neon/20">
-                            Box de Crossfit
-                        </span>
-                        
-                        <div class="space-y-2">
-                            <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-dark flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-white">Cortes de Alta Energia</h4>
-                            <p class="text-xs text-slate-300">Trilha marcante e ritmo acelerado para gerar comunidade.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Vídeo 3 -->
-                <div class="group relative aspect-[9/16] rounded-2xl overflow-hidden border border-brand-border bg-brand-card cursor-pointer reveal" onclick="openModal('https://www.w3schools.com/html/mov_bbb.mp4')">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop" alt="Vídeo Odontologia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                    
-                    <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                        <span class="self-start px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-xs font-medium text-brand-neon border border-brand-neon/20">
-                            Odontologia Estética
-                        </span>
-                        
-                        <div class="space-y-2">
-                            <div class="w-12 h-12 rounded-full bg-brand-emerald text-brand-dark flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-white">Vídeo de Autoridade</h4>
-                            <p class="text-xs text-slate-300">Doutor explicando o tratamento com overlays dinâmicos.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 4. SEÇÃO ANTES X DEPOIS INTERATIVO -->
-        <section id="diferencial" class="py-20 bg-brand-card/30 border-y border-brand-border">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
-                    <div class="lg:col-span-5 space-y-6 reveal">
-                        <h2 class="text-xs font-extrabold uppercase tracking-widest text-brand-neon">Transformação de Presença</h2>
-                        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Arraste o slider e veja a diferença do nosso padrão</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Uma presença digital amadora afasta clientes dispostos a pagar mais. Veja o impacto visual imediato quando aplicamos captação profissional e landing page de alta conversão.
-                        </p>
-
-                        <div class="space-y-3 pt-2">
-                            <div class="flex items-center gap-3 text-sm text-slate-300">
-                                <div class="w-6 h-6 rounded-full bg-red-500/10 text-red-400 flex items-center justify-center text-xs font-bold">X</div>
-                                <span><strong>Antes:</strong> Imagens escuras, perfil genérico e sem foco em vendas.</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-sm text-slate-300">
-                                <div class="w-6 h-6 rounded-full bg-brand-emerald/20 text-brand-neon flex items-center justify-center text-xs font-bold">✓</div>
-                                <span><strong>Depois:</strong> Identidade de alto padrão, vídeos em 4K e botão direto pro WhatsApp.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slider Component -->
-                    <div class="lg:col-span-7 reveal">
-                        <div class="ba-container w-full aspect-[4/3] sm:aspect-[16/10] border border-brand-border shadow-2xl" id="baSliderContainer">
-                            <!-- Foto Antes (Fundo) -->
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop" 
-                                 alt="Antes" 
-                                 class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-75">
-                            <span class="absolute top-4 left-4 z-10 px-3 py-1 rounded bg-black/70 text-white text-xs font-bold uppercase tracking-wider">Perfil Antigo</span>
-
-                            <!-- Foto Depois (Sobreposta) -->
-                            <div class="absolute inset-0 w-1/2 overflow-hidden" id="baAfterOverlay">
-                                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" 
-                                     alt="Depois" 
-                                     class="absolute top-0 left-0 max-w-none h-full object-cover" 
-                                     id="baAfterImage">
-                                <span class="absolute top-4 right-4 z-10 px-3 py-1 rounded bg-brand-emerald text-brand-dark text-xs font-bold uppercase tracking-wider">AURA Standard</span>
-                            </div>
-
-                            <!-- Manipulador do Slider -->
-                            <div class="ba-slider" id="baSliderHandler">
-                                <div class="ba-handle">
-                                    <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-center text-xs text-slate-400 mt-3">Arraste a linha central para comparar os resultados</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. CTA FINAL DE ALTA CONVERSÃO -->
-        <section class="py-24 max-w-5xl mx-auto px-6 text-center reveal">
-            <div class="p-10 sm:p-16 rounded-3xl bg-gradient-to-b from-brand-card to-brand-dark border border-brand-border relative overflow-hidden shadow-2xl">
-                <!-- Efeito luminoso de fundo -->
-                <div class="absolute -top-24 -left-24 w-72 h-72 bg-brand-emerald/10 rounded-full blur-3xl pointer-events-none"></div>
-                
-                <div class="relative z-10 space-y-6">
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-                        Pronto para transformar sua presença no nicho Wellness?
-                    </h2>
-                    
-                    <p class="text-slate-400 text-base max-w-2xl mx-auto">
-                        Analisamos a sua estrutura atual no Google e Instagram totalmente sem custo e mostramos exatamente o que precisa ser ajustado.
-                    </p>
-
-                    <div class="pt-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-                        <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20o%20diagnóstico%20gratuito%20da%20minha%20empresa." 
-                           target="_blank"
-                           class="w-full sm:w-auto px-10 py-5 rounded-full bg-brand-emerald text-brand-dark font-extrabold text-lg shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                            <i data-lucide="whatsapp" class="w-6 h-6"></i>
-                            <span>Falar no WhatsApp Agora</span>
-                        </a>
-                    </div>
-
-                    <p class="text-xs text-slate-400">Resposta em menos de 15 minutos durante horário comercial.</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para destacar sua empresa?</h2>
+            <p>Analisamos a presença digital atual do seu negócio sem qualquer custo e mostramos o plano ideal para atração de novos clientes.</p>
+            <a href="https://wa.me/5500000000000" class="btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Conversar com a Equipe
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-brand-border py-12 bg-brand-dark">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2 text-xl font-bold">
-                <span class="text-white">AURA</span>
-                <span class="w-2 h-2 rounded-full bg-brand-neon"></span>
-            </div>
-            <p class="text-xs text-slate-400">© 2026 AURA Media Studio. Todos os direitos reservados.</p>
-            <div class="flex gap-6 text-sm text-slate-400">
-                <a href="#" class="hover:text-brand-neon transition-colors">Instagram</a>
-                <a href="#" class="hover:text-brand-neon transition-colors">Google Maps</a>
-                <a href="#" class="hover:text-brand-neon transition-colors">WhatsApp</a>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Agência Digital. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- MODAL DE VÍDEO -->
-    <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="relative w-full max-w-sm aspect-[9/16] bg-black rounded-2xl overflow-hidden border border-brand-border shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-brand-emerald hover:text-black transition-colors">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <video id="modalVideoPlayer" class="w-full h-full object-cover" controls autoplay loop muted>
-                <source src="" type="video/mp4">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
-        </div>
-    </div>
-
-    <!-- Scripts da Página -->
-    <script>
-        // Inicializar ícones do Lucide
-        lucide.createIcons();
-
-        // Menu Mobile Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Modal de Vídeo
-        const modal = document.getElementById('videoModal');
-        const videoPlayer = document.getElementById('modalVideoPlayer');
-
-        function openModal(videoUrl) {
-            videoPlayer.src = videoUrl;
-            modal.classList.remove('hidden');
-            videoPlayer.play();
-        }
-
-        function closeModal() {
-            modal.classList.add('hidden');
-            videoPlayer.pause();
-            videoPlayer.src = '';
-        }
-
-        // Scroll Reveal Animation
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Trigger inicial
-
-        // Slider Antes x Depois (Touch & Mouse)
-        const container = document.getElementById('baSliderContainer');
-        const afterOverlay = document.getElementById('baAfterOverlay');
-        const afterImage = document.getElementById('baAfterImage');
-        const handler = document.getElementById('baSliderHandler');
-
-        function updateSliderWidth() {
-            if (container && afterImage) {
-                afterImage.style.width = container.offsetWidth + 'px';
-            }
-        }
-        window.addEventListener('resize', updateSliderWidth);
-        updateSliderWidth();
-
-        let isDragging = false;
-
-        function moveSlider(x) {
-            const rect = container.getBoundingClientRect();
-            let position = x - rect.left;
-            
-            if (position < 0) position = 0;
-            if (position > rect.width) position = rect.width;
-
-            const percentage = (position / rect.width) * 100;
-            afterOverlay.style.width = percentage + '%';
-            handler.style.left = percentage + '%';
-        }
-
-        container.addEventListener('mousedown', () => isDragging = true);
-        window.addEventListener('mouseup', () => isDragging = false);
-        container.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            moveSlider(e.clientX);
-        });
-
-        // Suporte para Touch (Celulares)
-        container.addEventListener('touchstart', () => isDragging = true);
-        window.addEventListener('touchend', () => isDragging = false);
-        container.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            moveSlider(e.touches[0].clientX);
-        });
-    </script>
 </body>
 </html>
